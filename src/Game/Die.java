@@ -1,10 +1,11 @@
 package Game;
 
 public class Die {
-    private final int MAX = 6;
+    private final int MAX;
     private int faceValue;
 
-    public Die() {
+    public Die(int max) {
+        this.MAX = max;
         roll();
     }
 
