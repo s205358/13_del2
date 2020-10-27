@@ -10,14 +10,14 @@ public class Die {
     }
 
     public void roll() {
-        setFaceVale((int) (Math.random() * MAX) + 1);
+        setFaceValue((int) (Math.random() * MAX) + 1);
     }
 
-    public void setFaceVale(int faceValue) {
+    public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
     }
 
-    public int getFaceVale() {
+    public int getFaceValue() {
         return faceValue;
     }
 }
