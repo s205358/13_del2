@@ -13,11 +13,18 @@ public class Die {
         setFaceValue((int) (Math.random() * MAX) + 1);
     }
 
+    // Getters/Setters
+    public int getFaceValue() {
+        return faceValue;
+    }
+
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
     }
 
-    public int getFaceValue() {
-        return faceValue;
+    // Stringify
+    @Override
+    public String toString() {
+        return faceValue + " eyes";
     }
 }
