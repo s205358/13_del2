@@ -1,36 +1,46 @@
 package Game;
 
-
 public class Bank {
-    public class BankAccount {
-        private int balance;
+    private int balance;
 
-        public void withdraw(int amountToWithdraw) {
-            if ((balance - amountToWithdraw) >= 0) {
-                updateBalance(-amountToWithdraw);
-            }else{
-                updateBalance(-balance);
-            }
-        }
-
-        public void deposit(int amountToDeposit) {
-            updateBalance(amountToDeposit);
-        }
-
-        private void updateBalance(int amount) {
-            balance = balance + amount;						//add or subtract amount from balance.
-        }
-
-        public String getBalance() {
-            return "Bank.BankAccount [balance=" + balance + "]";
-        }
-
-        @Override
-        public String toString() {
-            return "Bank.BankAccount [balance=" + balance + "]";
-        }
-
+    public Bank(int balance) {
+        this.balance = balance;
     }
 
+    public void deposit(int cash) {
+        this.balance += cash;
+    }
 
+    public void withdraw(int cash) {
+        if (balance > cash) {
+            this.balance -= cash;
+        } else {
+            this.balance = 0;
+        }
+    }
+
+    public void updateBalance(int cash) {
+        if (cash < 0) {
+            withdraw(cash);
+        } else if (cash > 0) {
+            deposit(cash);
+        } else {
+            // do nothing
+        }
+    }
+
+    // Getters/Setters
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    // Stringify
+    @Override
+    public String toString() {
+        return "$" + balance;
+    }
 }
