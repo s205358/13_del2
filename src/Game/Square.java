@@ -2,31 +2,39 @@ package Game;
 
 public class Square
 {
-    private String squareName;
-    private int squareValue;
+    private String name;
+    private int value;
 
-    public Square(String squareName, int squareValue)
+    public Square(String name, int value)
     {
-        this.squareName = squareName;
-        this.squareValue = squareValue;
+        this.name = name;
+        this.value = value;
     }
 
+    // Getters/Setters
     public String getName()
     {
-        return squareName;
+        return name;
     }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
     public int getValue()
     {
-        return squareValue;
+        return value;
     }
 
-    public void setName(String squareName)
+    public void setValue(int value)
     {
-        this.squareName = squareName;
-    }
-    public void SetValue(int SquareValue)
-    {
-        this.squareValue = squareValue;
+        this.value = value;
     }
 
+    // Stringify
+    @Override
+    public String toString() {
+        return name + ", " + value;
+    }
 }
