@@ -1,30 +1,31 @@
 package Game;
 
 public class Player {
-    // Spillernavn (Name) + get/set
     private String name;
-
-    public Player(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Void setName(String name) {
-        this.name = name;
-    }
-
-    //Spillerkonto (Bank) + get/set
     private Bank bank;
+    private Piece piece;
 
-    public Player(int balance) {
+    public Player(String name, int balance, int location) {
+        this.name = name;
         this.bank = new Bank(balance);
+        this.piece = new Piece(location);
+    }
+
+    public void movePiece(int sum) {
+        piece.setLocation(sum);
     }
 
     public void updateBalance(int cash) {
         bank.updateBalance(cash);
+    }
+
+    // Getters/Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Bank getBank() {
@@ -35,23 +36,18 @@ public class Player {
         this.bank = bank;
     }
 
-    //Spilbrik (Piece) + get/set
-    private Piece piece;
-
-    public Player(int location){
-        this.piece = new Piece(location);
-    }
-
-    public void movePiece(int sum) {
-        piece.setLocation(sum);
-    }
-
     public Piece getPiece() {
         return piece;
     }
 
     public void setPiece(Piece piece) {
         this.piece = piece;
+    }
+
+    // Stringify
+    @Override
+    public String toString() {
+        return name + " " + bank.toString();
     }
 }
 
