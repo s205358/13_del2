@@ -12,6 +12,7 @@ public class Bank {
     }
 
     public void withdraw(int cash) {
+        cash = Math.abs(cash);
         if (balance > cash) {
             this.balance -= cash;
         } else {
